@@ -19,7 +19,16 @@ def load_and_merge():
     all = all[all['Activity Type'] == 'Running']
 
     # format location text
-    all['Location'] = all['Title'].str.replace('Running', '').str.strip()
+# Chain the replacements
+    all['Location'] = (all['Title']
+        .str.replace('Running', '', regex=False)
+        .str.replace(' - Base', '', regex=False)
+        .str.replace('Marathon', '', regex=False)
+        .str.replace('City of', '', regex=False)
+        .str.replace('North Star', '', regex=False) # fairbanks specific
+        .str.replace('County', '', regex=False)
+        .str.replace('District', '', regex=False)
+        .str.strip())
 
     # date/time conversions
     all['Date'] = pd.to_datetime(all['Date'])
