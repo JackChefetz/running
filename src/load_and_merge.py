@@ -3,7 +3,7 @@ import pandas as pd
 
 def load_and_merge():
     """Loads all csv files in specified directory and merges into one df"""
-    data_path = '../data/all/'
+    data_path = os.path.join(os.path.dirname(__file__), '..', 'data', 'all')
     dfs = []
     for filename in os.listdir(data_path):
         if filename.endswith('.csv'):
