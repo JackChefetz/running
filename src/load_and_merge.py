@@ -2,7 +2,7 @@ import os
 import pandas as pd
 
 def load_and_merge():
-    """Loads and merges all csv files in specified directory"""
+    """Loads all csv files in specified directory and merges into one df"""
     data_path = '../data/all/'
     dfs = []
     for filename in os.listdir(data_path):
