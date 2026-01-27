@@ -2,7 +2,7 @@ import os
 import pandas as pd
 
 def load_and_merge():
-    """Loads all csv files in specified directory and merges into one df"""
+    """Loads all csv files in data/all and merges into one df"""
     data_path = os.path.join(os.path.dirname(__file__), '..', 'data', 'all')
     dfs = []
     for filename in os.listdir(data_path):
@@ -19,7 +19,6 @@ def load_and_merge():
     all = all[all['Activity Type'] == 'Running']
 
     # format location text
-# Chain the replacements
     all['Location'] = (all['Title']
         .str.replace('Running', '', regex=False)
         .str.replace(' - Base', '', regex=False)

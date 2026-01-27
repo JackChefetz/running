@@ -7,7 +7,7 @@ import os
 # Set page config for wide layout
 st.set_page_config(layout="wide")
 
-st.title("Running Data Dashboard")
+st.title("")
 
 # Add src to path and load data
 sys.path.append(os.path.abspath('src'))
